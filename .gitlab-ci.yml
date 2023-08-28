@@ -1,4 +1,10 @@
 docker-build:
+  tags:
+    - docker
+  artifacts:
+    name: "$CI_COMMIT_REF_NAME"
+    paths:
+      - artifacts/
   image: docker:latest
   stage: build
   services:
