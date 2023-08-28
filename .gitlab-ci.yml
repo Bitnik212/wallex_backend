@@ -1,4 +1,6 @@
 docker-build:
+  tags:
+    - docker
   image: docker:latest
   stage: build
   services:
