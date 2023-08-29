@@ -4,8 +4,6 @@ default:
     - docker:20.10.16-dind
 
 docker-build:
-  tags:
-    - docker
   artifacts:
     name: "$CI_COMMIT_REF_NAME"
     paths:
