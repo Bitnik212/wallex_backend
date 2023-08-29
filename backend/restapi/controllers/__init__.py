@@ -7,6 +7,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, Spec
 from .AuthUserController import AuthUserController
 from .BankAccountCardController import BankAccountCardController
 from .BankAccountController import BankAccountController
+from .BankAccountTopUpController import BankAccountTopUpController
 from .CreateBankAccountCardController import CreateBankAccountCardController
 from .CurrencyController import CurrencyController
 from .CurrencyExchangeController import CurrencyExchangeController
@@ -17,6 +18,7 @@ urlpatterns = [
     path("user/create", UserController.as_view()),
     path("user/", AuthUserController.as_view()),
     path("bank/account/", BankAccountController.as_view()),
+    path("bank/account/topup", BankAccountTopUpController.as_view()),
     path("bank/account/card", BankAccountCardController.as_view()),
     path("bank/account/<int:account_id>/card", CreateBankAccountCardController.as_view()),
     path("bank/currency/", CurrencyController.as_view()),
