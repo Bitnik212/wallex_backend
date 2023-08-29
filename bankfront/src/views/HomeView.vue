@@ -1,17 +1,14 @@
 <template>
   <div class="wrapper">
-    <div class="top">
-      <top-component></top-component>
-    </div>
     <div v-for="pay in mainPayments">
       <div>
-        <payment-card :currency="pay.currency" :balance="pay.balance" :bank-name="pay.bankName"></payment-card>
+        <payment-card :currency="pay.currency" :balance="pay.balance" :bank-name="pay.bankName" @click="showModal"></payment-card>
       </div>
       <p class="subHeader">Привязанные карты:</p>
     </div>
     <div v-for="pay in payments">
       <div>
-        <payment-card :currency="pay.currency" :balance="pay.balance" :bank-name="pay.bankName"></payment-card>
+        <payment-card :currency="pay.currency" :balance="pay.balance" :bank-name="pay.bankName" @click="showModal"></payment-card>
       </div>
     </div>
     <div class="add">
@@ -20,8 +17,9 @@
         Привязать новую карту
       </p>
     </div>
-    <wallex-card></wallex-card>
-
+    <wallex-card @interact="showWallexModal"></wallex-card>
+<modal-component v-show="isModalVisible" @close="closeModal"></modal-component>
+    <wallex-modal-component v-show="isWallexModalVisible" @close="closeWallexModal"></wallex-modal-component>
   </div>
 </template>
 
@@ -31,16 +29,22 @@ import TabComponent from "@/components/TabComponent";
 import TopComponent from "@/components/TopComponent";
 import PaymentCard from "@/components/PaymentCard";
 import WallexCard from "@/components/WallexCard";
+import ModalComponent from "@/components/ModalComponent";
+import WallexModalComponent from "@/components/WallexModalComponent";
 
 
 export default {
   name: 'HomeView',
   components: {
+    WallexModalComponent,
+    ModalComponent,
     TopComponent,
 TabComponent,
     PaymentCard,
-    WallexCard
+    WallexCard,
+
   },
+
   data(){
     return {
       tabs: [{
@@ -75,7 +79,9 @@ TabComponent,
           bankName: 'Тинькофф *0000',
           balance: 10000
         },
-      ]
+      ],
+      isModalVisible: false,
+      isWallexModalVisible: false
     }
   },
   methods: {
@@ -88,8 +94,23 @@ TabComponent,
         this.home = false
         this.payments = true
       }
-
-    }
+    },
+    showModal() {
+      this.isModalVisible = true;
+      this.isWallexModalVisible = false;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+      this.isWallexModalVisible = false;
+    },
+    showWallexModal() {
+      this.isWallexModalVisible = true;
+      this.isModalVisible = false;
+    },
+    closeWallexModal() {
+      this.isWallexModalVisible = false;
+      this.isModalVisible = false;
+    },
   }
 }
 </script>

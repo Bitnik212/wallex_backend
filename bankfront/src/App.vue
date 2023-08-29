@@ -1,4 +1,7 @@
 <template>
+  <div class="top">
+    <top-component></top-component>
+  </div>
   <div class="list">
     <div  class="tab"  v-for="tab in tabs">
       <tab-component :text=tab.text :background-color=tab.backgroundColor :color-text="tab.colorText" :image="tab.image" @click="clickTab(tab.index)"></tab-component>
@@ -12,6 +15,7 @@
 import TabComponent from "@/components/TabComponent";
 import HomeView from "@/views/HomeView";
 import PaymentView from "@/views/PaymentView";
+import TopComponent from "@/components/TopComponent";
 
 
 export default {
@@ -20,12 +24,13 @@ export default {
     PaymentView,
     HomeView,
     TabComponent,
+    TopComponent
   },
   data(){
     return {
       tabs: [{
         text: 'Главная',
-        backgroundColor: 'lightgray',
+        backgroundColor: '',
         colorText: 'black',
         image:"https://img.icons8.com/pulsar-line/48/home.png",
         index: 0
@@ -72,7 +77,7 @@ body{
   position: absolute;
   bottom:0;
   width: 100%;
-  border-top: 2px solid black;
+  background-color: #f9eb9e;
 }
 .tab{
   width: 50%;
