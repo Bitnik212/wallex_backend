@@ -8,7 +8,13 @@ from bank.models import BankAccountModel
 
 class BankAccountSerializer(serializers.ModelSerializer):
 
+    currency = serializers.SlugRelatedField(
+        many=False,
+        read_only=True,
+        slug_field='name'
+    )
+
     class Meta:
         model = BankAccountModel
-        fields = ["name", "currency", "amount"]
+        fields = ["id", "name", "currency", "amount"]
 
