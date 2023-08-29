@@ -9,6 +9,8 @@ from .BankAccountCardController import BankAccountCardController
 from .BankAccountController import BankAccountController
 from .CreateBankAccountCardController import CreateBankAccountCardController
 from .CurrencyController import CurrencyController
+from .CurrencyExchangeController import CurrencyExchangeController
+from .GetCurrencyExchangeController import GetCurrencyExchangeController
 from .UserController import UserController
 
 urlpatterns = [
@@ -17,7 +19,9 @@ urlpatterns = [
     path("bank/account/", BankAccountController.as_view()),
     path("bank/account/card", BankAccountCardController.as_view()),
     path("bank/account/<int:account_id>/card", CreateBankAccountCardController.as_view()),
-    path("bank/currency/", CurrencyController.as_view())
+    path("bank/currency/", CurrencyController.as_view()),
+    path("bank/currency/exchange/info", GetCurrencyExchangeController.as_view()),
+    path("bank/currency/exchange/", CurrencyExchangeController.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
