@@ -5,12 +5,14 @@ from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from .AuthUserController import AuthUserController
+from .BankAccountController import BankAccountController
 from .CurrencyController import CurrencyController
 from .UserController import UserController
 
 urlpatterns = [
     path("user/create", UserController.as_view()),
     path("user/", AuthUserController.as_view()),
+    path("bank/account/", BankAccountController.as_view()),
     path("bank/currency/", CurrencyController.as_view())
 ]
 
