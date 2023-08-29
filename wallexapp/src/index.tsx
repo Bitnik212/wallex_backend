@@ -6,6 +6,9 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-rou
 import './styles/fontFaces.css';
 import MainContainer from './views/MainContainer';
 import WalletView from './views/WalletView';
+import CurrencyView from './views/CurrencyView';
+import OffersView from './views/OffersView';
+import HelpView from './views/HelpView';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -20,11 +23,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/currency',
-        element: <p>currency</p>,
+        element: <CurrencyView />,
+      },
+      {
+        path: '/offers',
+        element: <OffersView />,
       },
       {
         path: '/help',
-        element: <p>help</p>,
+        element: <HelpView />,
       },
     ],
   },

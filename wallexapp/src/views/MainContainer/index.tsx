@@ -4,6 +4,7 @@ import { ReactComponent as IconSVG } from '../../assets/icon.svg';
 import { ReactComponent as WalletSVG } from '../../assets/wallet.svg';
 import { ReactComponent as CurrencySVG } from '../../assets/currency.svg';
 import { ReactComponent as HelpSVG } from '../../assets/help.svg';
+import { ReactComponent as OffersSVG } from '../../assets/offers.svg';
 import ImageButton from '../../ui/ImageButton';
 import ProfileImage from '../../assets/profileimage.png';
 import FooterButton from '../../ui/FooterButton';
@@ -22,8 +23,13 @@ function MainContainer({ footer = false }: Props) {
     },
     {
       path: '/currency',
-      title: 'Операции с валютой',
+      title: 'Операции',
       svg: <CurrencySVG />,
+    },
+    {
+      path: '/offers',
+      title: 'Предложения',
+      svg: <OffersSVG />,
     },
     {
       path: '/help',
