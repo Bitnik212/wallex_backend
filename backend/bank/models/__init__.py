@@ -7,6 +7,7 @@ from .CurrencyModel import CurrencyModel
 from .PaymentProcessingModel import PaymentProcessingModel
 from .account.BankAccountCardModel import BankAccountCardModel
 from .account.BankAccountModel import BankAccountModel
+from .currency_exchange.CurrencyExchangeModel import CurrencyExchangeModel
 
 
 class Models(Enum):
@@ -14,3 +15,4 @@ class Models(Enum):
     payment = PaymentProcessingModel
     account = BankAccountModel
     account_card = BankAccountCardModel
+    cex = CurrencyExchangeModel

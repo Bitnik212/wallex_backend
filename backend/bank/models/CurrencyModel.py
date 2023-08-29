@@ -7,7 +7,7 @@ from django.contrib.admin import ModelAdmin
 
 class CurrencyModel(models.Model):
     name = models.TextField(unique=True, verbose_name="Название валюты")
-    symbol = models.TextField(unique=True, verbose_name="Значек валюты")
+    symbol = models.CharField(max_length=1, unique=True, verbose_name="Значек валюты")
 
     def __str__(self):
         return f"{self.symbol} {self.name}"

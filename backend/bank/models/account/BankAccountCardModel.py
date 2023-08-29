@@ -12,15 +12,15 @@ from .BankAccountModel import BankAccountModel
 from ..PaymentProcessingModel import PaymentProcessingModel
 
 
+def get_default_card_number() -> int:
+    return int(f"5302{random.randrange(1000, 9999)}{random.randrange(1000, 9999)}{random.randrange(1000, 9999)}")
+
+
+def get_cvv() -> int:
+    return random.randrange(100, 999)
+
+
 class BankAccountCardModel(models.Model):
-    @staticmethod
-    def get_default_card_number() -> int:
-        return int(f"5302{random.randrange(1000, 9999)}{random.randrange(1000, 9999)}{random.randrange(1000, 9999)}")
-
-    @staticmethod
-    def get_cvv() -> int:
-        return random.randrange(100, 999)
-
     number = models.BigIntegerField(default=get_default_card_number, verbose_name="Номер карты")
     secure_code = models.IntegerField(default=get_cvv, verbose_name="Секретный код")
     expired_at = models.DateField(default=timezone.now().replace(year=2027), verbose_name="Срок действия")
