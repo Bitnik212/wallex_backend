@@ -3,17 +3,13 @@ __date__ = "29.08.2023 18:34"
 
 from rest_framework import serializers
 
-from bank.models import CurrencyExchangeModel
-
-from bank.models import BankAccountModel
 from bank.models.currency_exchange.CurrencyExchangeHistoryModel import CurrencyExchangeHistoryModel
 
 
 class CurrencyExchangeHistorySerializer(serializers.ModelSerializer):
-
     class Meta:
         model = CurrencyExchangeHistoryModel
-        fields = ["currency_exchange", "from_account", "to_account", "amount"]
+        fields = ["id", "currency_exchange", "from_account", "to_account", "amount"]
 
     def create(self, validated_data: dict):
         from_account = validated_data.get("from_account")
@@ -24,6 +20,7 @@ class CurrencyExchangeHistorySerializer(serializers.ModelSerializer):
             validated_data.update({"amount": amount})
             from_account.amount = from_account.amount - amount
             from_account.save()
+            # to_account.amount =
             return super().create(validated_data)
         else:
             raise Exception("Не верные валюты счетов и курса")

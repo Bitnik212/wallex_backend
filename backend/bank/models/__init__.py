@@ -8,6 +8,8 @@ from .PaymentProcessingModel import PaymentProcessingModel
 from .UserModel import UserModel
 from .account.BankAccountCardModel import BankAccountCardModel
 from .account.BankAccountModel import BankAccountModel
+from .account.BankAccountTopUpModel import BankAccountTopUpModel
+from .currency_exchange.CurrencyExchangeHistoryModel import CurrencyExchangeHistoryModel
 from .currency_exchange.CurrencyExchangeModel import CurrencyExchangeModel
 
 
@@ -18,3 +20,5 @@ class Models(Enum):
     account_card = BankAccountCardModel
     cex = CurrencyExchangeModel
     user = UserModel
+    cexx = CurrencyExchangeHistoryModel
+    topup = BankAccountTopUpModel
