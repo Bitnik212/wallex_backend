@@ -5,6 +5,7 @@ from enum import Enum
 
 from .CurrencyModel import CurrencyModel
 from .PaymentProcessingModel import PaymentProcessingModel
+from .UserModel import UserModel
 from .account.BankAccountCardModel import BankAccountCardModel
 from .account.BankAccountModel import BankAccountModel
 from .currency_exchange.CurrencyExchangeModel import CurrencyExchangeModel
@@ -16,3 +17,4 @@ class Models(Enum):
     account = BankAccountModel
     account_card = BankAccountCardModel
     cex = CurrencyExchangeModel
+    user = UserModel
