@@ -1,0 +1,1 @@
+insert into bank_currencymodel values (1, 'Рубль', '₽');
