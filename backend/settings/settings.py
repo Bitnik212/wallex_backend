@@ -31,8 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
-    'drf_spectacular',
-    'drf_spectacular_sidecar'
+    'drf_spectacular'
 ]
 
 REST_FRAMEWORK = {
